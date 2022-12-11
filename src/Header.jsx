@@ -19,9 +19,15 @@ const Header = ({searchTerm = "", searchRequest = () => {}, setSearch = () => {}
 
               <div className="first_row_left_search">
                 <div className="search_box">
-                    <input type="search" placeholder="" value={searchTerm} onChange={(e) => {
+                    <input type="search" placeholder="" value={searchTerm} 
+                    onChange={(e) => {
                       setSearch(e.target.value);
-                    }} autoFocus />
+                    }} 
+
+                    onKeyUp={(e) => {
+                      return e.key == "Enter" && searchRequest();
+                    }}                    
+                    autoFocus />
 
                     <div onClick={searchRequest} style={{cursor: "pointer"}}>
                       <MdKeyboardVoice fill="#4285f4" size="1.4rem"/>

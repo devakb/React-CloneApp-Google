@@ -18,7 +18,7 @@ function App() {
 
   const searchNewData = async () => {
       setPageResults(null);
-      fetch(`https://www.googleapis.com/customsearch/v1?q=${search}&key=AIzaSyAF-35U2oxHgmN6hZVr0D9DWbgE8WK2sm8&cx=77e7dda13b877e91d&lr=lang_en&c2coff=1`)
+      fetch(`https://www.googleapis.com/customsearch/v1?q=${search}&key=${process.env.REACT_APP_GOOGLE_API_KEY}&cx=${process.env.REACT_APP_GOOGLE_CX}&lr=lang_en&c2coff=1`)
       .then(res => res.json())
       .then(data => setPageResults(data));
   }
